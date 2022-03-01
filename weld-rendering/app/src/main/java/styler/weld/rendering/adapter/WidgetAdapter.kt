@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
 import styler.weld.rendering.models.Widget
+import styler.weld.rendering.viewholder.BannerViewHolder
 
 class WidgetAdapter(private val response: Widget) : RecyclerView.Adapter<BannerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
