@@ -15,4 +15,10 @@ class WidgetAdapter : RecyclerView.Adapter<BannerViewHolder>() {
     override fun getItemCount(): Int {
         TODO("Not yet implemented")
     }
+
+    override fun getItemViewType(position: Int): Int {
+        // TODO: Return BANNER_TYPE for now
+        return BANNER_TYPE
+    }
+
 }
