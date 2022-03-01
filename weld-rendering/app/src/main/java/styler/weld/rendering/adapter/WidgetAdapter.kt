@@ -7,7 +7,7 @@ import styler.weld.rendering.R
 import styler.weld.rendering.models.Widget
 import styler.weld.rendering.viewholder.BannerViewHolder
 
-class WidgetAdapter(private val response: Widget) : RecyclerView.Adapter<BannerViewHolder>() {
+class WidgetAdapter(private val response: Widget?) : RecyclerView.Adapter<BannerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
         // TODO: Banner type for now
         val view = LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
@@ -18,7 +18,7 @@ class WidgetAdapter(private val response: Widget) : RecyclerView.Adapter<BannerV
         TODO("Not yet implemented")
     }
 
-    override fun getItemCount() = response.widgets.size
+    override fun getItemCount() = response?.widgets?.size ?: 1
 
     override fun getItemViewType(position: Int): Int {
         // TODO: Return BANNER_TYPE for now
