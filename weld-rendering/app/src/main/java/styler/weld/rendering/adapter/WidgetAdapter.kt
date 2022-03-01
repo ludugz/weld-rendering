@@ -21,4 +21,8 @@ class WidgetAdapter : RecyclerView.Adapter<BannerViewHolder>() {
         return BANNER_TYPE
     }
 
+    companion object {
+        private const val BANNER_TYPE = 1
+        private const val ITEM_LIST_TYPE = 2
+    }
 }
