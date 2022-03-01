@@ -1,4 +1,4 @@
-package styler.weld.rendering.models
+package styler.weld.rendering.models.remote
 
 data class Data(
     val image_id: String,
