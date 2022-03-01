@@ -3,12 +3,12 @@ package styler.weld.rendering.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class WidgetAdapter : RecyclerView.Adapter<WidgetViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WidgetViewHolder {
+class WidgetAdapter : RecyclerView.Adapter<BannerViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
         TODO("Not yet implemented")
     }
 
-    override fun onBindViewHolder(holder: WidgetViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
         TODO("Not yet implemented")
     }
 
