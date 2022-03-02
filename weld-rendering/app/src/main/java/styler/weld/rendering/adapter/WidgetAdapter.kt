@@ -24,9 +24,10 @@ class WidgetAdapter(private val response: Widget?) :
 
     override fun getItemCount() = response?.widgets?.size ?: 1
 
-    override fun getItemViewType(position: Int): Int {
-        // TODO: Return BANNER_TYPE for now
-        return BANNER_TYPE
+    override fun getItemViewType(position: Int) = when (response?.widgets?.get(position)?.type) {
+        "banner" -> BANNER_TYPE
+        "item_list" -> ITEM_LIST_TYPE
+        else -> INVALID_TYPE
     }
 
     companion object {
