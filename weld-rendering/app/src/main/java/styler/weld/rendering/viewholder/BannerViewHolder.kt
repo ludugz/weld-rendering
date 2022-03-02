@@ -15,7 +15,6 @@ class BannerViewHolder(
     private val imageView: ImageView = itemView.findViewById(R.id.image_view_banner)
     override fun bindData() {
         val data = bannerList?.get(0)!!.data
-        // TODO: Only banner type for now
         if (data is BannerData) {
             Glide.with(itemView.context).load(imageFromId(data.image_id)).into(imageView)
         }
