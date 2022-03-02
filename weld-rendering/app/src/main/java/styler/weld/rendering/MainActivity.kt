@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import styler.weld.rendering.adapter.WidgetAdapter
+import styler.weld.rendering.utils.fakeData
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRecyclerView() {
         recycler_view.apply {
-            adapter = WidgetAdapter(null)
+            adapter = WidgetAdapter(fakeData())
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         }
     }
