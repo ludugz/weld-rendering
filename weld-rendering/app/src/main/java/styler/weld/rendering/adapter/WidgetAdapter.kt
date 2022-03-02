@@ -19,12 +19,7 @@ class WidgetAdapter(private val response: Widget?) : RecyclerView.Adapter<BaseVi
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<WidgetData>, position: Int) {
-        // TODO: Banner type for now
-        when (holder) {
-            is BannerViewHolder -> {
-                holder.bindData()
-            }
-        }
+        holder.bindData()
     }
 
     override fun getItemCount() = response?.widgets?.size ?: 1
