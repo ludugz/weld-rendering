@@ -4,8 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
-import styler.weld.rendering.models.local.BaseData
-import styler.weld.rendering.models.local.banner.Banner
 import styler.weld.rendering.models.remote.Widget
 import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.viewholder.BannerViewHolder
