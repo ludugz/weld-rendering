@@ -4,18 +4,27 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
-import styler.weld.rendering.models.Widget
+import styler.weld.rendering.models.local.BaseData
+import styler.weld.rendering.models.local.banner.Banner
+import styler.weld.rendering.models.remote.Widget
+import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.viewholder.BannerViewHolder
 import styler.weld.rendering.viewholder.BaseViewHolder
 
-class WidgetAdapter(private val response: Widget?) : RecyclerView.Adapter<BaseViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
+class WidgetAdapter(private val response: Widget?) : RecyclerView.Adapter<BaseViewHolder<WidgetData>>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<WidgetData> {
         // TODO: Banner type for now
         val view = LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
-        return BannerViewHolder(view)
+        return BannerViewHolder(view, response?.widgets)
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<WidgetData>, position: Int) {
+        // TODO: Banner type for now
+        when (holder) {
+            is BannerViewHolder -> {
+                holder.bindData()
+            }
+        }
     }
 
     override fun getItemCount() = response?.widgets?.size ?: 1
