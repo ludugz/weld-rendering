@@ -9,10 +9,12 @@ import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.viewholder.BannerViewHolder
 import styler.weld.rendering.viewholder.BaseViewHolder
 
-class WidgetAdapter(private val response: Widget?) : RecyclerView.Adapter<BaseViewHolder<WidgetData>>() {
+class WidgetAdapter(private val response: Widget?) :
+    RecyclerView.Adapter<BaseViewHolder<WidgetData>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<WidgetData> {
         // TODO: Banner type for now
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
         return BannerViewHolder(view, response?.widgets)
     }
 
