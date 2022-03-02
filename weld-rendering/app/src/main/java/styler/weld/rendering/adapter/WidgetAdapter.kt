@@ -28,6 +28,7 @@ class WidgetAdapter(private val response: Widget?) : RecyclerView.Adapter<BaseVi
     }
 
     companion object {
+        private const val INVALID_TYPE = 0
         private const val BANNER_TYPE = 1
         private const val ITEM_LIST_TYPE = 2
     }
