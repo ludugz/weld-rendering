@@ -1,7 +1,13 @@
 package styler.weld.rendering.viewholder
 
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
+import styler.weld.rendering.models.local.itemlist.ItemList
 
-class ItemListViewHolder(itemView: View) : BaseViewHolder(itemView) {
+class ItemListViewHolder(
+    itemView: View,
+    itemListList: List<ItemList>
+) : BaseViewHolder<ItemList>(itemView, itemListList) {
+    override fun bindData() {
+        TODO("Not yet implemented")
+    }
 }
