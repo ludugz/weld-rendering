@@ -22,7 +22,7 @@ class ItemListViewHolder(
                 adapter = HorizontalAdapter(data.items)
                 layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
             }
-            title.text = "Change later"
+            title.text = widgetData[1].title
         }
     }
 }
