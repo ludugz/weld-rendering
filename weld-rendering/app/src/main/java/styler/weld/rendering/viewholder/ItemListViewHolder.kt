@@ -1,13 +1,28 @@
 package styler.weld.rendering.viewholder
 
 import android.view.View
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import styler.weld.rendering.R
+import styler.weld.rendering.adapter.HorizontalAdapter
+import styler.weld.rendering.models.local.itemlist.ItemListData
 import styler.weld.rendering.models.remote.WidgetData
 
 class ItemListViewHolder(
     itemView: View,
-    itemListList: List<WidgetData>
-) : BaseViewHolder<WidgetData>(itemView, itemListList) {
+    private val widgetData: List<WidgetData>?
+) : BaseViewHolder<WidgetData>(itemView, widgetData) {
+    private val title: TextView = itemView.findViewById(R.id.text_view_title_item_list)
+    private val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view_item_list)
     override fun bindData() {
-        TODO("Not yet implemented")
+        val data = widgetData?.get(1)!!.data
+        if (data is ItemListData) {
+            recyclerView.apply {
+                adapter = HorizontalAdapter(data.items)
+                layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+            }
+            title.text = "Change later"
+        }
     }
 }
