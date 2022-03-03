@@ -6,7 +6,7 @@ data class ItemListItem(
     val id: String,
     val image: String,
     val name: String,
-    val price_with_tax: Double,
+    val price_with_tax: Double?,
     val shop_id: String,
     val type: String
 )
