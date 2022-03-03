@@ -63,3 +63,7 @@ fun fakeData(): Widget {
         )
     )
 }
+
+fun formattedPrice(price: Double?) : String {
+    return "¥$price (税込)"
+}
