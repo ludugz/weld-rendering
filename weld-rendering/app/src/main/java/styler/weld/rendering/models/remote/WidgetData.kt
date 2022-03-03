@@ -3,7 +3,7 @@ package styler.weld.rendering.models.remote
 import styler.weld.rendering.models.local.BaseData
 
 open class WidgetData(
-    val data: BaseData,
+    open val type: String,
     open val title: String,
-    open val type: String
+    val data: BaseData
 )
