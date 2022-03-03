@@ -2,7 +2,7 @@ package styler.weld.rendering.models.local.itemlist
 
 data class ItemListItem(
     val brand: String,
-    val discount: Any,
+    val discount: Any?,
     val id: String,
     val image: String,
     val name: String,
