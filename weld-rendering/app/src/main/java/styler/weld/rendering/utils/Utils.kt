@@ -34,7 +34,27 @@ fun fakeData(): Widget {
                             23100.0,
                             "fb82f6e4-df9a-4f51-b80c-0d9d68967e30",
                             "item"
-                        )
+                        ),
+                        ItemListItem(
+                            "EDIFICE",
+                            null,
+                            "69588f36-bce7-4813-8d01-3384d734c2f3",
+                            "59da5187-bf7c-415e-8ce4-5822e4d1517a",
+                            "【Barbour / バブアー】OVERSIZE WAX BEAUFORT (ビューフォート)",
+                            23100.0,
+                            "fb82f6e4-df9a-4f51-b80c-0d9d68967e30",
+                            "item"
+                        ),
+                        ItemListItem(
+                            "JOURNAL STANDARD",
+                            null,
+                            "d6d4cb91-ac21-4456-9ac6-3cb8220176e4",
+                            "df59875e-ee99-43ce-82ad-9e6bc13d4f19",
+                            "【CIOTA / シオタ】スビンコットンタイロッケンコート",
+                            null,
+                            "4e507a25-fed3-4778-9a2e-470836ee26c7",
+                            "item"
+                        ),
                     )
                 ),
                 "今気になる春アウターは？",
