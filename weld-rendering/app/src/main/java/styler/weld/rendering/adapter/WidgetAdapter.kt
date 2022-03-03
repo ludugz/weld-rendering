@@ -12,10 +12,21 @@ import styler.weld.rendering.viewholder.BaseViewHolder
 class WidgetAdapter(private val response: Widget?) :
     RecyclerView.Adapter<BaseViewHolder<WidgetData>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<WidgetData> {
-        // TODO: Banner type for now
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
-        return BannerViewHolder(view, response?.widgets)
+        return when (viewType) {
+            BANNER_TYPE -> {
+                val view =
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.banner_row_item, parent, false)
+                BannerViewHolder(view, response?.widgets)
+            }
+            ITEM_LIST_TYPE -> {
+                val view =
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.item_list_row_item, parent, false)
+                ItemListViewHolder(view, response?.widgets)
+            }
+            else -> TODO("Invalid type")
+        }
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<WidgetData>, position: Int) {
