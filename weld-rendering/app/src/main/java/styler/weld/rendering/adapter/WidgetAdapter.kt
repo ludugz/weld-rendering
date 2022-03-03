@@ -1,5 +1,6 @@
 package styler.weld.rendering.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,7 @@ import styler.weld.rendering.models.remote.Widget
 import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.viewholder.BannerViewHolder
 import styler.weld.rendering.viewholder.BaseViewHolder
+import styler.weld.rendering.viewholder.ItemListViewHolder
 
 class WidgetAdapter(private val response: Widget?) :
     RecyclerView.Adapter<BaseViewHolder<WidgetData>>() {
