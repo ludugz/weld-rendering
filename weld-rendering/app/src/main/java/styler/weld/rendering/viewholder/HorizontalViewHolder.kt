@@ -14,7 +14,7 @@ class HorizontalViewHolder(
     itemView: View,
     private val listData: List<ItemListItem>?
 ) : RecyclerView.ViewHolder(itemView) {
-    private val tvBrand: TextView = itemView.findViewById(R.id.text_view_brand_horizontal)
+    private val tvBrand: TextView = itemView.findViewById(R.id.text_view_name_horizontal)
     private val tvPrice: TextView = itemView.findViewById(R.id.text_view_price_horizontal)
     private val imageView: ImageView = itemView.findViewById(R.id.image_view_horizontal)
     fun bindData() {
