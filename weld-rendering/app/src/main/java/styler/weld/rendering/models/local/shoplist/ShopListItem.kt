@@ -1,7 +1,7 @@
 package styler.weld.rendering.models.local.shoplist
 
-data class Item(
+data class ShopListItem(
     val id: String,
-    val logo: String,
-    val name: String
+    val name: String,
+    val logo: String
 )
