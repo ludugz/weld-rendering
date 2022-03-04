@@ -45,7 +45,6 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
         return EmptyViewHolder(view, response?.widgets)
     }
 
-
     override fun onBindViewHolder(holder: BaseViewHolder<WidgetData<BaseData>>, position: Int) {
         holder.bindData()
     }
