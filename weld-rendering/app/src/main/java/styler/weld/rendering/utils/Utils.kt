@@ -15,14 +15,16 @@ fun fakeData(): Widget {
     return Widget(
         listOf(
             WidgetData(
+                "banner",
+                "クーポンキャンペーン",
                 BannerData(
                     "767f9b6a-7f99-4a20-9fba-205f6122f679",
                     "page=webview&url=https%3A%2F%2Ffacy.jp%2Fenjoy-facy-coupon%2F&title=クーポンキャンペーン"
                 ),
-                "クーポンキャンペーン",
-                "banner"
             ),
             WidgetData(
+                "item_list",
+                "今気になる春アウターは？",
                 ItemListData(
                     listOf(
                         ItemListItem(
@@ -57,8 +59,6 @@ fun fakeData(): Widget {
                         ),
                     )
                 ),
-                "今気になる春アウターは？",
-                "item_list"
             )
         )
     )
