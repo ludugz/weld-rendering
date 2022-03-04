@@ -22,17 +22,19 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
                         .inflate(R.layout.banner_row_item, parent, false)
                 BannerViewHolder(view, response?.widgets)
             }
-            ITEM_LIST_TYPE -> {
-                val view =
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.item_list_row_item, parent, false)
-                ItemListViewHolder(view, response?.widgets)
-            }
+            ITEM_LIST_TYPE -> itemListViewHolder(parent)
             else -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.empty_view_row_item, parent, false)
                 EmptyViewHolder(view, null)
             }
         }
+    }
+
+    private fun itemListViewHolder(parent: ViewGroup): ItemListViewHolder {
+        val view =
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_list_row_item, parent, false)
+        return ItemListViewHolder(view, response?.widgets)
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<WidgetData<BaseData>>, position: Int) {
