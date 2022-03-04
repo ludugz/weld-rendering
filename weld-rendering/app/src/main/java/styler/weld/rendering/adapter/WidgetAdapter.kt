@@ -14,7 +14,10 @@ import styler.weld.rendering.viewholder.ItemListViewHolder
 
 class WidgetAdapter(private val response: Widget<BaseData>?) :
     RecyclerView.Adapter<BaseViewHolder<WidgetData<BaseData>>>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<WidgetData<BaseData>> {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): BaseViewHolder<WidgetData<BaseData>> {
         return when (viewType) {
             BANNER_TYPE -> bannerViewHolder(parent)
             ITEM_LIST_TYPE -> itemListViewHolder(parent)
