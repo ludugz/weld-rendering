@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRecyclerView() {
         recycler_view.apply {
-            adapter = WidgetAdapter(fakeData())
+            adapter = WidgetAdapter(widgetData)
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         }
     }
