@@ -9,6 +9,7 @@ import styler.weld.rendering.models.remote.Widget
 import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.viewholder.BannerViewHolder
 import styler.weld.rendering.viewholder.BaseViewHolder
+import styler.weld.rendering.viewholder.EmptyViewHolder
 import styler.weld.rendering.viewholder.ItemListViewHolder
 
 class WidgetAdapter(private val response: Widget<BaseData>?) :
@@ -27,7 +28,10 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
                         .inflate(R.layout.item_list_row_item, parent, false)
                 ItemListViewHolder(view, response?.widgets)
             }
-            else -> TODO("Invalid type")
+            else -> {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.empty_view_row_item, parent, false)
+                EmptyViewHolder(view, null)
+            }
         }
     }
 
