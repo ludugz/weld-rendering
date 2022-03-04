@@ -16,13 +16,16 @@ class ItemListViewHolder(
     private val title: TextView = itemView.findViewById(R.id.text_view_title_item_list)
     private val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view_item_list)
     override fun bindData() {
-        val data = widgetData?.get(1)!!.data
-        if (data is ItemListData) {
-            recyclerView.apply {
-                adapter = HorizontalAdapter(data.items)
-                layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+        widgetData?.forEach { widgetData ->
+            if (widgetData.type == "item_list") {
+                val data = widgetData.data
+                recyclerView.apply {
+                    adapter = HorizontalAdapter(data.items)
+                    layoutManager =
+                        LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+                    title.text = widgetData.title
+                }
             }
-            title.text = widgetData[1].title
         }
     }
 }
