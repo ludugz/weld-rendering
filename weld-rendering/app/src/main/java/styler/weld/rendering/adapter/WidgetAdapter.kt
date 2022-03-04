@@ -16,12 +16,7 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
     RecyclerView.Adapter<BaseViewHolder<WidgetData<BaseData>>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<WidgetData<BaseData>> {
         return when (viewType) {
-            BANNER_TYPE -> {
-                val view =
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.banner_row_item, parent, false)
-                BannerViewHolder(view, response?.widgets)
-            }
+            BANNER_TYPE -> bannerViewHolder(parent)
             ITEM_LIST_TYPE -> itemListViewHolder(parent)
             else -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.empty_view_row_item, parent, false)
@@ -35,6 +30,12 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_list_row_item, parent, false)
         return ItemListViewHolder(view, response?.widgets)
+    }
+
+    private fun bannerViewHolder(parent: ViewGroup): BannerViewHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
+        return BannerViewHolder(view, response?.widgets)
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<WidgetData<BaseData>>, position: Int) {
