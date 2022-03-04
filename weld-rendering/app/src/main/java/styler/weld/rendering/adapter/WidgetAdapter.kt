@@ -21,10 +21,8 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
         return when (viewType) {
             BANNER_TYPE -> bannerViewHolder(parent)
             ITEM_LIST_TYPE -> itemListViewHolder(parent)
-            else -> {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.empty_view_row_item, parent, false)
-                EmptyViewHolder(view, null)
-            }
+            LOCAL_RECENT_ITEMS -> itemListViewHolder(parent)
+            else -> emptyViewHolder(parent)
         }
     }
 
@@ -40,6 +38,13 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
             LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
         return BannerViewHolder(view, response?.widgets)
     }
+
+    private fun emptyViewHolder(parent: ViewGroup): EmptyViewHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.empty_view_row_item, parent, false)
+        return EmptyViewHolder(view, response?.widgets)
+    }
+
 
     override fun onBindViewHolder(holder: BaseViewHolder<WidgetData<BaseData>>, position: Int) {
         holder.bindData()
