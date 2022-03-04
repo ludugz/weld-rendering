@@ -50,6 +50,8 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
         return when (response?.widgets?.get(position)?.type) {
             "banner" -> BANNER_TYPE
             "item_list" -> ITEM_LIST_TYPE
+            "local_recent_items" -> LOCAL_RECENT_ITEMS
+            "shop_list" -> SHOP_LIST
             else -> INVALID_TYPE
         }
     }
@@ -58,5 +60,7 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
         private const val INVALID_TYPE = 0
         private const val BANNER_TYPE = 1
         private const val ITEM_LIST_TYPE = 2
+        private const val LOCAL_RECENT_ITEMS = 3
+        private const val SHOP_LIST = 4
     }
 }
