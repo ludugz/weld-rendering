@@ -6,7 +6,7 @@ import com.google.gson.JsonSyntaxException
 import java.lang.reflect.Type
 
 object GsonUtils {
-    private var instance: Gson? = null
+    var instance: Gson? = null
         get() {
             if (field == null) {
                 val gsonBuilder = GsonBuilder()
