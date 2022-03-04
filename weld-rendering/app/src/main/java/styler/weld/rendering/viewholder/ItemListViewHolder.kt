@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
 import styler.weld.rendering.adapter.HorizontalAdapter
-import styler.weld.rendering.models.local.itemlist.ItemListData
+import styler.weld.rendering.models.local.BaseData
 import styler.weld.rendering.models.remote.WidgetData
 
 class ItemListViewHolder(
     itemView: View,
-    private val widgetData: List<WidgetData>?
-) : BaseViewHolder<WidgetData>(itemView, widgetData) {
+    private val widgetData: List<WidgetData<BaseData>>?
+) : BaseViewHolder<WidgetData<BaseData>>(itemView, widgetData) {
     private val title: TextView = itemView.findViewById(R.id.text_view_title_item_list)
     private val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view_item_list)
     override fun bindData() {

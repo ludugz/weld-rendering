@@ -1,5 +1,6 @@
 package styler.weld.rendering.utils
 
+import styler.weld.rendering.models.local.BaseData
 import styler.weld.rendering.models.local.banner.BannerData
 import styler.weld.rendering.models.local.itemlist.ItemListData
 import styler.weld.rendering.models.local.itemlist.ItemListItem
@@ -11,7 +12,7 @@ fun imageFromId(imageId: String): String {
     return "https://api.stg.facy.jp/images/$imageId/original.jpeg"
 }
 
-fun fakeData(): Widget {
+fun fakeData(): Widget<BaseData> {
     return Widget(
         listOf(
             WidgetData(

@@ -1,19 +1,19 @@
 package styler.weld.rendering.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
+import styler.weld.rendering.models.local.BaseData
 import styler.weld.rendering.models.remote.Widget
 import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.viewholder.BannerViewHolder
 import styler.weld.rendering.viewholder.BaseViewHolder
 import styler.weld.rendering.viewholder.ItemListViewHolder
 
-class WidgetAdapter(private val response: Widget?) :
-    RecyclerView.Adapter<BaseViewHolder<WidgetData>>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<WidgetData> {
+class WidgetAdapter(private val response: Widget<BaseData>?) :
+    RecyclerView.Adapter<BaseViewHolder<WidgetData<BaseData>>>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<WidgetData<BaseData>> {
         return when (viewType) {
             BANNER_TYPE -> {
                 val view =
@@ -31,7 +31,7 @@ class WidgetAdapter(private val response: Widget?) :
         }
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder<WidgetData>, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<WidgetData<BaseData>>, position: Int) {
         holder.bindData()
     }
 
