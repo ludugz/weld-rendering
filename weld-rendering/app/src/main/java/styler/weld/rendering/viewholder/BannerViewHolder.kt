@@ -14,9 +14,11 @@ class BannerViewHolder(
 ) : BaseViewHolder<WidgetData<BaseData>>(itemView, widgetData) {
     private val imageView: ImageView = itemView.findViewById(R.id.image_view_banner)
     override fun bindData() {
-        val data = bannerList?.get(0)!!.data
-        if (data is BannerData) {
-            Glide.with(itemView.context).load(imageFromId(data.image_id)).into(imageView)
+        widgetData?.forEach { widgetData ->
+            if (widgetData.type == "banner") {
+                val data = widgetData.data
+                Glide.with(itemView.context).load(imageFromId(data.image_id!!)).into(imageView)
+            }
         }
     }
 }
