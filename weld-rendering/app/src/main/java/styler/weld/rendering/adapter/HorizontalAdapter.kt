@@ -18,6 +18,7 @@ class HorizontalAdapter(private val list: List<HorizontalItem>?) :
         // Item List
         if (viewType == ITEM_TYPE) {
             return itemViewHolder(parent)
+            else -> emptyViewHolder(parent)
         }
         return shopViewHolder(parent)
     }
@@ -34,6 +35,12 @@ class HorizontalAdapter(private val list: List<HorizontalItem>?) :
             LayoutInflater.from(parent.context).inflate(R.layout.horizontal_shop_list_row_item, parent, false)
         val shopList: List<ShopListItem> = list!!.filterIsInstance<ShopListItem>()
         return HorizontalShopViewHolder(view, shopList)
+    }
+
+    private fun emptyViewHolder(parent: ViewGroup): EmptyHorizontalViewHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.empty_view_row_item, parent, false)
+        return EmptyHorizontalViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: HorizontalViewHolder, position: Int) {
