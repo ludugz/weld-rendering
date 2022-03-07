@@ -20,7 +20,7 @@ class ItemListViewHolder(
             if (widgetData.type == "item_list") {
                 val data = widgetData.data
                 recyclerView.apply {
-                    adapter = HorizontalAdapter(data.items)
+                    adapter = HorizontalAdapter(data.items, "item")
                     layoutManager =
                         LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
                     title.text = widgetData.title
