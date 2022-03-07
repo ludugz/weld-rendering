@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
-import styler.weld.rendering.models.local.BaseData
 import styler.weld.rendering.models.remote.Widget
 import styler.weld.rendering.viewholder.*
 
-class WidgetAdapter(private val response: Widget<BaseData>?) :
+class WidgetAdapter(private val response: Widget?) :
     RecyclerView.Adapter<BaseViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,

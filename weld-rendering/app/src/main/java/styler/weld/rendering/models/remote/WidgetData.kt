@@ -1,9 +1,9 @@
 package styler.weld.rendering.models.remote
 
-import styler.weld.rendering.models.local.BaseData
+import styler.weld.rendering.models.local.Data
 
-open class WidgetData <T : BaseData>(
+open class WidgetData (
     open val type: String,
     open val title: String,
-    val data: T
+    val data: Data
 )

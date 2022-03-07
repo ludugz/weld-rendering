@@ -6,12 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
 import styler.weld.rendering.adapter.ArticleAdapter
-import styler.weld.rendering.models.local.BaseData
 import styler.weld.rendering.models.remote.WidgetData
 
 class ArticleListViewHolder(
     itemView: View,
-    private val widgetData: List<WidgetData<BaseData>>?
+    private val widgetData: List<WidgetData>?
 ) : BaseViewHolder(itemView) {
     private val tvLabel: TextView = itemView.findViewById(R.id.text_view_label_article)
     private val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view_article)
