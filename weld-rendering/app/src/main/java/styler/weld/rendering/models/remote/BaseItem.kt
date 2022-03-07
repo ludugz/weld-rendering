@@ -1,17 +1,17 @@
 package styler.weld.rendering.models.remote
 
 open class BaseItem(
-    open val brand: String = "",
-    open val discount: Any? = null,
-    open val id: String = "",
-    open val image: String = "",
-    open val name: String = "",
-    open val price_with_tax: Double? = null,
-    open val shop_id: String = "",
-    open val type: String = "",
-    open val logo: String = "",
-    open val image_url: String? = null,
-    open val url: String? = null,
-    open val title: String? = null,
-    open val excerpt: String? = null
+    val brand: String = "",
+    val discount: Any? = null,
+    val id: String = "",
+    val image: String = "",
+    val name: String = "",
+    val price_with_tax: Double? = null,
+    val shop_id: String = "",
+    val type: String = "",
+    val logo: String = "",
+    val image_url: String? = null,
+    val url: String? = null,
+    val title: String? = null,
+    val excerpt: String? = null
 )
