@@ -5,7 +5,7 @@ An example of how to render Widget Definition List with generic response in Andr
 
 Since we need to handle generic types of a Json response, a parent data class that contains every fields is defined as below:
 
-```
+```kotlin
 open class BaseItem(
     open val brand: String? = null,
     open val discount: Any? = null,
@@ -24,7 +24,7 @@ open class BaseItem(
 ```
 
 And in the adapter of each type, the transformed version of `BaseItem` is handled, for example `item_list` type in `HorizontalAdapter`, as below:
-```
+```kotlin
         val itemList: List<ItemListItem>? = baseList?.map {
             ItemListItem(
                 it.brand,
