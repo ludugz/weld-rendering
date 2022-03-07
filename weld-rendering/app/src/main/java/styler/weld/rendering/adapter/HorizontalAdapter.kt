@@ -4,23 +4,26 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
-import styler.weld.rendering.models.local.HorizontalItem
+import styler.weld.rendering.models.local.BaseItem
 import styler.weld.rendering.models.local.itemlist.ItemListItem
 import styler.weld.rendering.models.local.shoplist.ShopListItem
+import styler.weld.rendering.viewholder.EmptyHorizontalViewHolder
 import styler.weld.rendering.viewholder.HorizontalItemViewHolder
 import styler.weld.rendering.viewholder.HorizontalShopViewHolder
 import styler.weld.rendering.viewholder.HorizontalViewHolder
 
-class HorizontalAdapter(private val list: List<HorizontalItem>?) :
+class HorizontalAdapter(
+    private val list: List<BaseItem>?,
+    private val type: String
+) :
     RecyclerView.Adapter<HorizontalViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalViewHolder {
-        // Item List
-        if (viewType == ITEM_TYPE) {
-            return itemViewHolder(parent)
+        return when (viewType) {
+            ITEM_TYPE -> itemViewHolder(parent)
+            SHOP_TYPE -> shopViewHolder(parent)
             else -> emptyViewHolder(parent)
         }
-        return shopViewHolder(parent)
     }
 
     private fun itemViewHolder(parent: ViewGroup): HorizontalItemViewHolder {
