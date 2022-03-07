@@ -13,7 +13,7 @@ import styler.weld.rendering.viewholder.HorizontalShopViewHolder
 import styler.weld.rendering.viewholder.HorizontalViewHolder
 
 class HorizontalAdapter(
-    private val list: List<BaseItem>?,
+    private val baseList: List<BaseItem>?,
     private val type: String
 ) :
     RecyclerView.Adapter<HorizontalViewHolder>() {
@@ -30,8 +30,8 @@ class HorizontalAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.horizontal_item_list_row_item, parent, false)
-        val itemList: List<ItemListItem> = list!!.map {
             // TOTO Need to think about nullable type later
+        val itemList: List<ItemListItem>? = baseList?.map {
             ItemListItem(
                 it.brand!!,
                 it.discount,
@@ -50,8 +50,8 @@ class HorizontalAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.horizontal_shop_list_row_item, parent, false)
-        val shopList: List<ShopListItem> = list!!.map {
             // TOTO Need to think about nullable type later or maybe just use HorizontalItem
+        val shopList: List<ShopListItem>? = baseList?.map {
             ShopListItem(
                 it.id!!,
                 it.name!!,
@@ -72,7 +72,7 @@ class HorizontalAdapter(
     }
 
     override fun getItemCount() : Int {
-        return list?.size ?: 0
+        return baseList?.size ?: 0
     }
 
     override fun getItemViewType(position: Int): Int {
