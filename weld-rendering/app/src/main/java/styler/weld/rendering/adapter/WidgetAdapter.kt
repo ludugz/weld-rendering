@@ -1,5 +1,6 @@
 package styler.weld.rendering.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,10 +8,7 @@ import styler.weld.rendering.R
 import styler.weld.rendering.models.local.BaseData
 import styler.weld.rendering.models.remote.Widget
 import styler.weld.rendering.models.remote.WidgetData
-import styler.weld.rendering.viewholder.BannerViewHolder
-import styler.weld.rendering.viewholder.BaseViewHolder
-import styler.weld.rendering.viewholder.EmptyViewHolder
-import styler.weld.rendering.viewholder.ItemListViewHolder
+import styler.weld.rendering.viewholder.*
 
 class WidgetAdapter(private val response: Widget<BaseData>?) :
     RecyclerView.Adapter<BaseViewHolder<WidgetData<BaseData>>>() {
@@ -19,9 +17,18 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
         viewType: Int
     ): BaseViewHolder<WidgetData<BaseData>> {
         return when (viewType) {
-            BANNER_TYPE -> bannerViewHolder(parent)
-            ITEM_LIST_TYPE -> itemListViewHolder(parent)
-            LOCAL_RECENT_ITEMS -> itemListViewHolder(parent)
+            BANNER_TYPE -> {
+                bannerViewHolder(parent)
+            }
+            ITEM_LIST_TYPE -> {
+                itemListViewHolder(parent)
+            }
+            LOCAL_RECENT_ITEMS -> {
+                itemListViewHolder(parent)
+            }
+            SHOP_LIST -> {
+                shopListViewHolder(parent)
+            }
             else -> emptyViewHolder(parent)
         }
     }
@@ -31,6 +38,13 @@ class WidgetAdapter(private val response: Widget<BaseData>?) :
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_list_row_item, parent, false)
         return ItemListViewHolder(view, response?.widgets)
+    }
+
+    private fun shopListViewHolder(parent: ViewGroup): ShopListViewHolder {
+        val view =
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.shop_list_row_item, parent, false)
+        return ShopListViewHolder(view, response?.widgets)
     }
 
     private fun bannerViewHolder(parent: ViewGroup): BannerViewHolder {
