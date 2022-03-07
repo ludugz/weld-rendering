@@ -11,7 +11,7 @@ import styler.weld.rendering.utils.imageFromId
 class BannerViewHolder(
     itemView: View,
     private val widgetData: List<WidgetData<BaseData>>?
-) : BaseViewHolder<WidgetData<BaseData>>(itemView, widgetData) {
+) : BaseViewHolder(itemView) {
     private val imageView: ImageView = itemView.findViewById(R.id.image_view_banner)
     override fun bindData() {
         widgetData?.forEach { widgetData ->

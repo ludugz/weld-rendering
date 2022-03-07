@@ -12,7 +12,7 @@ import styler.weld.rendering.models.remote.WidgetData
 class ItemListViewHolder(
     itemView: View,
     private val widgetDataList: List<WidgetData<BaseData>>?
-) : BaseViewHolder<WidgetData<BaseData>>(itemView, widgetDataList) {
+) : BaseViewHolder(itemView) {
     private val title: TextView = itemView.findViewById(R.id.text_view_title_item)
     private val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view_item)
     override fun bindData() {

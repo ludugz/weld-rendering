@@ -5,8 +5,7 @@ import styler.weld.rendering.models.local.BaseData
 import styler.weld.rendering.models.remote.WidgetData
 
 class EmptyViewHolder(
-    itemView: View,
-    widgetData: List<WidgetData<BaseData>>?
-) : BaseViewHolder<WidgetData<BaseData>>(itemView, widgetData) {
+    itemView: View
+) : BaseViewHolder(itemView) {
     override fun bindData() {}
 }
