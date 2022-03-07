@@ -5,8 +5,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="10dp"
-    app:cardCornerRadius="5dp"
     android:elevation="6dp"
+    app:cardCornerRadius="5dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
@@ -17,7 +17,7 @@
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            android:id="@+id/image_view_horizontal"
+            android:id="@+id/image_view_shop_logo"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,17 +26,11 @@
             tools:src="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/text_view_name_horizontal"
+            android:id="@+id/text_view_shop_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Brand name" />
-
-        <TextView
-            android:id="@+id/text_view_price_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            tools:text="Price" />
+            android:layout_gravity="center"
+            tools:text="Name" />
 
     </LinearLayout>
 
