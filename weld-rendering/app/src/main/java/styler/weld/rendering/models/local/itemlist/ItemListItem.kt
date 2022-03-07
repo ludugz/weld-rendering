@@ -1,14 +1,14 @@
 package styler.weld.rendering.models.local.itemlist
 
-import styler.weld.rendering.models.local.HorizontalItem
+import styler.weld.rendering.models.local.BaseItem
 
 data class ItemListItem(
-    val brand: String,
-    val discount: Any?,
-    val id: String,
-    val image: String,
-    val name: String,
-    val price_with_tax: Double?,
-    val shop_id: String,
-    val type: String
-) : HorizontalItem
+    override val brand: String,
+    override val discount: Any?,
+    override val id: String,
+    override val image: String,
+    override val name: String,
+    override val price_with_tax: Double?,
+    override val shop_id: String,
+    override val type: String
+) : BaseItem()
