@@ -25,8 +25,21 @@ class HorizontalAdapter(private val list: List<HorizontalItem>?) :
 
     private fun itemViewHolder(parent: ViewGroup): HorizontalItemViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.horizontal_item_list_row_item, parent, false)
-        val itemList: List<ItemListItem> = list!!.filterIsInstance<ItemListItem>()
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.horizontal_item_list_row_item, parent, false)
+        val itemList: List<ItemListItem> = list!!.map {
+            // TOTO Need to think about nullable type later
+            ItemListItem(
+                it.brand!!,
+                it.discount,
+                it.id!!,
+                it.image!!,
+                it.name!!,
+                it.price_with_tax,
+                it.shop_id!!,
+                it.type!!
+            )
+        }
         return HorizontalItemViewHolder(view, itemList)
     }
 
