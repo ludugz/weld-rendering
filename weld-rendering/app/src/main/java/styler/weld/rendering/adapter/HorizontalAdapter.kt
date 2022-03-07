@@ -51,6 +51,7 @@ class HorizontalAdapter(private val list: List<HorizontalItem>?) :
     }
 
     companion object {
+        private const val INVALID_TYPE = 0
         private const val ITEM_TYPE = 1
         private const val SHOP_TYPE = 2
     }
