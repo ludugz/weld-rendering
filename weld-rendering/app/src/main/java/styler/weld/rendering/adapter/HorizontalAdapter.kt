@@ -45,9 +45,11 @@ class HorizontalAdapter(private val list: List<HorizontalItem>?) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (list?.get(0) is ItemListItem) { //TODO Quick way for now
-            ITEM_TYPE
-        } else SHOP_TYPE
+        return when (type) {
+            "item" -> ITEM_TYPE
+            "shop" -> SHOP_TYPE
+            else -> INVALID_TYPE
+        }
     }
 
     companion object {
