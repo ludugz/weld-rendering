@@ -30,17 +30,16 @@ class HorizontalAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.horizontal_item_list_row_item, parent, false)
-            // TOTO Need to think about nullable type later
         val itemList: List<ItemListItem>? = baseList?.map {
             ItemListItem(
-                it.brand!!,
+                it.brand,
                 it.discount,
-                it.id!!,
-                it.image!!,
-                it.name!!,
+                it.id,
+                it.image,
+                it.name,
                 it.price_with_tax,
-                it.shop_id!!,
-                it.type!!
+                it.shop_id,
+                it.type
             )
         }
         return HorizontalItemViewHolder(view, itemList)
@@ -50,12 +49,11 @@ class HorizontalAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.horizontal_shop_list_row_item, parent, false)
-            // TOTO Need to think about nullable type later or maybe just use HorizontalItem
         val shopList: List<ShopListItem>? = baseList?.map {
             ShopListItem(
-                it.id!!,
-                it.name!!,
-                it.logo!!
+                it.id,
+                it.name,
+                it.logo
             )
         }
         return HorizontalShopViewHolder(view, shopList)
