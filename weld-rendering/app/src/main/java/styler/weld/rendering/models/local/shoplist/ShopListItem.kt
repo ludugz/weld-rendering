@@ -1,6 +1,6 @@
 package styler.weld.rendering.models.local.shoplist
 
-import styler.weld.rendering.models.local.BaseItem
+import styler.weld.rendering.models.remote.BaseItem
 
 data class ShopListItem(
     override val id: String,

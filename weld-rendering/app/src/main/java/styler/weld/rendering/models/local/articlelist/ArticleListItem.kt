@@ -1,6 +1,6 @@
 package styler.weld.rendering.models.local.articlelist
 
-import styler.weld.rendering.models.local.BaseItem
+import styler.weld.rendering.models.remote.BaseItem
 
 data class ArticleListItem(
     override val image_url: String? = null,

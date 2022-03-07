@@ -1,4 +1,6 @@
-package styler.weld.rendering.models.local
+package styler.weld.rendering.models.remote
+
+import styler.weld.rendering.models.remote.BaseItem
 
 open class Data(
     open val image_id: String? = null,

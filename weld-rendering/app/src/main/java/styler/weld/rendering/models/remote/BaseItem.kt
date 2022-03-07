@@ -1,4 +1,4 @@
-package styler.weld.rendering.models.local
+package styler.weld.rendering.models.remote
 
 open class BaseItem(
     open val brand: String? = null,

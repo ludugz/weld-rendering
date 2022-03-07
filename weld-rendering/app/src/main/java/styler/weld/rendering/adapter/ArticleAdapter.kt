@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
-import styler.weld.rendering.models.local.BaseItem
+import styler.weld.rendering.models.remote.BaseItem
 import styler.weld.rendering.models.local.articlelist.ArticleListItem
 import styler.weld.rendering.viewholder.*
 
