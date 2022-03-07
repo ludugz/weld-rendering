@@ -1,9 +1,9 @@
 package styler.weld.rendering.models.local.shoplist
 
-import styler.weld.rendering.models.local.HorizontalItem
+import styler.weld.rendering.models.local.BaseItem
 
 data class ShopListItem(
-    val id: String?,
-    val name: String?,
-    val logo: String?
-) : HorizontalItem
+    override val id: String,
+    override val name: String,
+    override val logo: String
+) : BaseItem()
