@@ -23,7 +23,7 @@ class ArticleListViewHolder(
                 recyclerView.apply {
                     adapter = ArticleAdapter(data, "article")
                     layoutManager =
-                        LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+                        LinearLayoutManager(itemView.context, LinearLayoutManager.VERTICAL, false)
                 }
                 tvLabel.text = widgetData.title
             }
