@@ -16,19 +16,19 @@ class ArticleListViewHolder(
     private val tvLabel: TextView = itemView.findViewById(R.id.text_view_label_article)
     private val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view_article)
 
-    override fun bindData(data: WidgetData) {
-        recyclerView.apply {
-            adapter = ArticleAdapter(data.data, "article")
-            layoutManager =
-                LinearLayoutManager(itemView.context, LinearLayoutManager.VERTICAL, false)
-        }
-        tvLabel.text = data.title
-    }
-
     companion object {
-        fun create(parent: ViewGroup): BaseViewHolder {
+        fun instance(parent: ViewGroup): BaseViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.banner_row_item, parent, false)
             return ArticleListViewHolder(view)
         }
+    }
+
+    override fun bindData(data: WidgetData) {
+//        recyclerView.apply {
+//            adapter = ArticleAdapter(data.data, "article")
+//            layoutManager =
+//                LinearLayoutManager(itemView.context, LinearLayoutManager.VERTICAL, false)
+//        }
+//        tvLabel.text = data.title
     }
 }

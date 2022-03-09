@@ -14,12 +14,12 @@ class ShopListViewHolder(
 ) : BaseViewHolder(itemView) {
     private val title: TextView = itemView.findViewById(R.id.text_view_shop_name)
     private val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view_shop)
-    override fun bindData() {
+    override fun bindData(data: WidgetData) {
         widgetDataList?.forEach { widgetData ->
             if (widgetData.type == "shop_list") {
                 val data = widgetData.data
                 recyclerView.apply {
-                    adapter = HorizontalAdapter(data.items, "shop")
+//                    adapter = HorizontalAdapter(data.items, "shop")
                     layoutManager =
                         LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
                     title.text = widgetData.title
