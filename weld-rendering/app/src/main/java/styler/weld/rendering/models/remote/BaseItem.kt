@@ -1,5 +1,6 @@
 package styler.weld.rendering.models.remote
 
+// TODO: This can be deleted later 
 open class BaseItem(
     val brand: String = "",
     val discount: Any? = null,
