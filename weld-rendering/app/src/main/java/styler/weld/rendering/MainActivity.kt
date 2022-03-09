@@ -12,6 +12,7 @@ import styler.weld.rendering.models.remote.WidgetDefinitionList
 import styler.weld.rendering.utils.GsonUtils
 import styler.weld.rendering.viewholder.ArticleListViewHolder
 import styler.weld.rendering.viewholder.ItemListViewHolder
+import styler.weld.rendering.viewholder.WidgetFactory
 import java.lang.reflect.Type
 
 
@@ -31,17 +32,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() {
-        var widgetFactory = new WidgetFactory();
-        widgetFactory.register("area_selection", ....factory)
-        widgetFactory.register("feed", ....feedfactory)
-        widgetFactory.register("article_list", ArticleListViewHolder.factory)
-        widgetFactory.register("item_list", ItemListViewHolder.factory)
+        val widgetFactory = WidgetFactory();
+        widgetFactory.register("article_list", ArticleListViewHolder::create )
+        widgetFactory.register("item_list", ItemListViewHolder::create)
 
-        widgetData.add(0, new WidgetData(type: "area_selection"))
-        widgetData.add(widgetData.length - 1, new WidgetData(type: "feed"))
+        // examples in case you would handle area and feed in the same
+//        widgetFactory.register("area_selection", ....factory)
+//        widgetFactory.register("feed", ....feedfactory)
+//        widgetData.add(0, new WidgetData(type: "area_selection"))
+//        widgetData.add(widgetData.length - 1, new WidgetData(type: "feed"))
 
         recycler_view.apply {
-            adapter = WidgetAdapter(widgetData)
+            adapter = WidgetAdapter(widgetData, widgetFactory)
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         }
     }
