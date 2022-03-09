@@ -13,7 +13,7 @@ class BannerViewHolder(
     private val imageView: ImageView = itemView.findViewById(R.id.image_view_banner)
 
     override fun bindData(data: WidgetData) {
-        val imageIdStr = data.data["image_id"] as String
+        val imageIdStr = data.data["image_id"] as String? ?: "" // TODO: Should be refactored to support nullable type 
         Glide.with(itemView.context).load(imageFromId(imageIdStr)).into(imageView)
     }
 }
