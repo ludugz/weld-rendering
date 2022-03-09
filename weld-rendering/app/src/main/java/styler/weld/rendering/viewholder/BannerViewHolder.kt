@@ -8,16 +8,12 @@ import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.utils.imageFromId
 
 class BannerViewHolder(
-    itemView: View,
-    private val widgetData: List<WidgetData>?
+    itemView: View
 ) : BaseViewHolder(itemView) {
     private val imageView: ImageView = itemView.findViewById(R.id.image_view_banner)
-    override fun bindData() {
-        widgetData?.forEach { widgetData ->
-            if (widgetData.type == "banner") {
-                val data = widgetData.data
-                Glide.with(itemView.context).load(imageFromId(data.image_id!!)).into(imageView)
-            }
-        }
+
+    override fun bindData(data: WidgetData) {
+        val imageIdStr = data.data["image_id"] as String
+        Glide.with(itemView.context).load(imageFromId(imageIdStr)).into(imageView)
     }
 }
