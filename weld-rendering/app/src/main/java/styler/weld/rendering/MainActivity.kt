@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import styler.weld.rendering.adapter.WidgetAdapter
-import styler.weld.rendering.models.local.articlelist.ArticleListItem
+import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.models.remote.WidgetDefinitionList
 import styler.weld.rendering.utils.GsonUtils
 import styler.weld.rendering.viewholder.ArticleListViewHolder
@@ -18,7 +18,9 @@ import java.lang.reflect.Type
 
 class MainActivity : AppCompatActivity() {
 
-    private var widgetData: Widget? = null
+    private var widgetDataList = listOf<WidgetData>()
+
+    private val widgetFactory = WidgetFactory()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +34,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() {
-        val widgetFactory = WidgetFactory();
-        widgetFactory.register("article_list", ArticleListViewHolder::create )
-        widgetFactory.register("item_list", ItemListViewHolder::create)
+        widgetFactory.register("banner")
+        widgetFactory.register("item_list")
 
         // examples in case you would handle area and feed in the same
 //        widgetFactory.register("area_selection", ....factory)
@@ -43,14 +44,15 @@ class MainActivity : AppCompatActivity() {
 //        widgetData.add(widgetData.length - 1, new WidgetData(type: "feed"))
 
         recycler_view.apply {
-            adapter = WidgetAdapter(widgetData, widgetFactory)
+            adapter = WidgetAdapter(widgetDataList, widgetFactory)
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         }
     }
 
     private fun initData() {
         val type: Type = object : TypeToken<WidgetDefinitionList>() {}.type
-        widgetData = GsonUtils.instance!!.fromJson(responseFromFile(), type)
+        val widgetDefinitionList : WidgetDefinitionList = GsonUtils.instance!!.fromJson(responseFromFile(), type)
+        widgetDataList = widgetDefinitionList.widgets
     }
 
     private fun responseFromFile() =
