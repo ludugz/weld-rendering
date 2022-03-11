@@ -1,6 +1,8 @@
 package styler.weld.rendering.viewholder
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +39,14 @@ class ItemListViewHolder(
                 it["shop_id"] as String,
                 it["type"] as String
             )
+        }
+    }
+
+    companion object {
+        fun create(parent: ViewGroup): BaseViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_list_row_item, parent, false)
+            return ItemListViewHolder(view)
         }
     }
 }
