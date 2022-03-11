@@ -6,7 +6,7 @@ import styler.weld.rendering.R
 
 class WidgetFactory {
 
-    var factories: MutableList<FactoryMethod> = mutableListOf();
+    private var factories: MutableList<FactoryMethod> = mutableListOf()
 
     fun register(type: String, factory: (parent: ViewGroup) -> BaseViewHolder) {
         factories.add(FactoryMethod(type, factory))
