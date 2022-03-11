@@ -57,6 +57,12 @@ class MainActivity : AppCompatActivity() {
 //        widgetFactory.register("feed", ....feedfactory)
 //        widgetData.add(0, new WidgetData(type: "area_selection"))
 //        widgetData.add(widgetData.length - 1, new WidgetData(type: "feed"))
+        widgetFactory.register("article_list") { parent ->
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.article_list_row_item, parent, false)
+            return@register ArticleListViewHolder(view)
+        }
+
 
         recycler_view.apply {
             adapter = WidgetAdapter(widgetDataList, widgetFactory)
