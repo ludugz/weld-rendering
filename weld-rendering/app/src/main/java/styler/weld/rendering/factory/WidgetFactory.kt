@@ -1,6 +1,7 @@
-package styler.weld.rendering.viewholder
+package styler.weld.rendering.factory
 
 import android.view.ViewGroup
+import styler.weld.rendering.viewholder.BaseViewHolder
 
 class WidgetFactory {
 

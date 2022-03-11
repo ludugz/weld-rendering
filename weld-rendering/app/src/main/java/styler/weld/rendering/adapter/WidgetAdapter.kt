@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.viewholder.BaseViewHolder
-import styler.weld.rendering.viewholder.WidgetFactory
+import styler.weld.rendering.factory.WidgetFactory
 
 class WidgetAdapter(
     private val widgets: List<WidgetData>,

@@ -2,13 +2,13 @@ package styler.weld.rendering
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import styler.weld.rendering.adapter.WidgetAdapter
+import styler.weld.rendering.factory.WidgetFactory
 import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.models.remote.WidgetDefinitionList
 import styler.weld.rendering.utils.GsonUtils
