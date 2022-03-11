@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
 import styler.weld.rendering.models.local.HorizontalListItem
 import styler.weld.rendering.models.local.itemlist.ItemListItem
+import styler.weld.rendering.models.local.shoplist.ShopListItem
 import styler.weld.rendering.viewholder.EmptyHorizontalViewHolder
 import styler.weld.rendering.viewholder.HorizontalItemViewHolder
 import styler.weld.rendering.viewholder.HorizontalShopViewHolder
@@ -39,7 +40,10 @@ class HorizontalAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.horizontal_shop_list_row_item, parent, false)
-        return HorizontalShopViewHolder(view, null)
+        val shopList = baseList?.filterIsInstance<ShopListItem>().takeIf {
+            it?.size == baseList?.size
+        }
+        return HorizontalShopViewHolder(view, shopList)
     }
 
     private fun emptyViewHolder(parent: ViewGroup): EmptyHorizontalViewHolder {
