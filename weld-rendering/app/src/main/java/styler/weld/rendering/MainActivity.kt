@@ -1,6 +1,8 @@
 package styler.weld.rendering
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +12,7 @@ import styler.weld.rendering.adapter.WidgetAdapter
 import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.models.remote.WidgetDefinitionList
 import styler.weld.rendering.utils.GsonUtils
-import styler.weld.rendering.viewholder.ArticleListViewHolder
-import styler.weld.rendering.viewholder.ItemListViewHolder
-import styler.weld.rendering.viewholder.WidgetFactory
+import styler.weld.rendering.viewholder.*
 import java.lang.reflect.Type
 
 
@@ -34,8 +34,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() {
-        widgetFactory.register("banner")
         widgetFactory.register("item_list")
+        widgetFactory.register("banner") { parent ->
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.banner_row_item, parent, false)
+            return@register BannerViewHolder(view)
+        }
+
 
         // examples in case you would handle area and feed in the same
 //        widgetFactory.register("area_selection", ....factory)
