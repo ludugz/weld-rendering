@@ -63,6 +63,11 @@ class MainActivity : AppCompatActivity() {
             return@register ArticleListViewHolder(view)
         }
 
+        widgetFactory.register("invalid") { parent ->
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.empty_view_row_item, parent, false)
+            return@register EmptyViewHolder(view)
+        }
 
         recycler_view.apply {
             adapter = WidgetAdapter(widgetDataList, widgetFactory)
