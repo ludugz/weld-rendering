@@ -46,6 +46,11 @@ class MainActivity : AppCompatActivity() {
             return@register ItemListViewHolder(view)
         }
 
+        widgetFactory.register("shop_list") { parent ->
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.shop_list_row_item, parent, false)
+            return@register ShopListViewHolder(view)
+        }
 
         // examples in case you would handle area and feed in the same
 //        widgetFactory.register("area_selection", ....factory)
