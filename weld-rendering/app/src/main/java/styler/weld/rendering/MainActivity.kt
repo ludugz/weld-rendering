@@ -35,9 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRecyclerView() {
         widgetFactory.register("banner") { parent ->
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.banner_row_item, parent, false)
-            return@register BannerViewHolder(view)
+            BannerViewHolder.create(parent)
         }
 
         widgetFactory.register("item_list") { parent ->
