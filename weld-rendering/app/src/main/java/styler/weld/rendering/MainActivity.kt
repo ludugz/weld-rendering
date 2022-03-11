@@ -51,7 +51,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initData() {
         val type: Type = object : TypeToken<WidgetDefinitionList>() {}.type
-        val widgetDefinitionList : WidgetDefinitionList = GsonUtils.instance!!.fromJson(responseFromFile(), type)
+        val widgetDefinitionList: WidgetDefinitionList =
+            GsonUtils.instance!!.fromJson(responseFromFile(), type)
         widgetDataList = widgetDefinitionList.widgets
     }
 
