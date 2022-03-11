@@ -24,8 +24,3 @@ class WidgetFactory {
         }
     }
 }
-
-class FactoryMethod(val type: String, val factory: (parent: ViewGroup) -> BaseViewHolder) {
-    fun createViewHolder(parent: ViewGroup): BaseViewHolder = factory(parent)
-}
-
