@@ -47,9 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         widgetFactory.register("article_list") { parent ->
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.article_list_row_item, parent, false)
-            return@register ArticleListViewHolder(view)
+            ArticleListViewHolder.create(parent)
         }
 
         widgetFactory.register("invalid") { parent ->
