@@ -51,9 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         widgetFactory.register("invalid") { parent ->
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.empty_view_row_item, parent, false)
-            return@register EmptyViewHolder(view)
+            EmptyViewHolder.create(parent)
         }
 
         recycler_view.apply {
