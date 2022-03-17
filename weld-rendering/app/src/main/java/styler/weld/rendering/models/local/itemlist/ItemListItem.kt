@@ -1,5 +1,7 @@
 package styler.weld.rendering.models.local.itemlist
 
+import styler.weld.rendering.models.local.HorizontalListItem
+
 data class ItemListItem(
     val brand: String,
     val discount: Any?,
@@ -9,4 +11,4 @@ data class ItemListItem(
     val price_with_tax: Double?,
     val shop_id: String,
     val type: String
-)
+) : HorizontalListItem

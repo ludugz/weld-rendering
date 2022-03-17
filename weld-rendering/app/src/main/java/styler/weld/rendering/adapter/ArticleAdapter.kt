@@ -4,12 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
-import styler.weld.rendering.models.remote.BaseItem
 import styler.weld.rendering.models.local.articlelist.ArticleListItem
 import styler.weld.rendering.viewholder.*
 
 class ArticleAdapter(
-    private val list: List<BaseItem>?,
+    private val articleList: List<ArticleListItem>?,
     private val type: String
 ) : RecyclerView.Adapter<HorizontalViewHolder>() {
 
@@ -24,15 +23,7 @@ class ArticleAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.vertical_article_list_row_item, parent, false)
-        val itemList: List<ArticleListItem> = list!!.map {
-            ArticleListItem(
-                it.image_url,
-                it.url!!,
-                it.title!!,
-                it.excerpt!!
-            )
-        }
-        return VerticalArticleViewHolder(view, itemList)
+        return VerticalArticleViewHolder(view, articleList)
     }
 
     private fun emptyViewHolder(parent: ViewGroup): HorizontalViewHolder {
@@ -46,7 +37,7 @@ class ArticleAdapter(
     }
 
     override fun getItemCount(): Int {
-        return list?.size ?: 0
+        return articleList?.size ?: 0
     }
 
     override fun getItemViewType(position: Int): Int {

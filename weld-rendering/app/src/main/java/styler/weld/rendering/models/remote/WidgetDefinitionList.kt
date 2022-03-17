@@ -1,5 +1,5 @@
 package styler.weld.rendering.models.remote
 
-data class Widget (
+data class WidgetDefinitionList (
     val widgets: List<WidgetData>
 )
