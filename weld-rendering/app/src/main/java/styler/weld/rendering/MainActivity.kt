@@ -1,56 +1,70 @@
 package styler.weld.rendering
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import styler.weld.rendering.adapter.WidgetAdapter
-import styler.weld.rendering.models.local.articlelist.ArticleListItem
+import styler.weld.rendering.factory.WidgetFactory
+import styler.weld.rendering.models.remote.WidgetData
 import styler.weld.rendering.models.remote.WidgetDefinitionList
 import styler.weld.rendering.utils.GsonUtils
-import styler.weld.rendering.viewholder.ArticleListViewHolder
-import styler.weld.rendering.viewholder.ItemListViewHolder
-import styler.weld.rendering.viewholder.WidgetFactory
+import styler.weld.rendering.viewholder.*
 import java.lang.reflect.Type
 
 
 class MainActivity : AppCompatActivity() {
 
-    private var widgetData: Widget? = null
+    private var widgetDataList = listOf<WidgetData>()
+
+    private val widgetFactory = WidgetFactory()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initData()
         initViews()
     }
 
     private fun initViews() {
-        initData()
         setUpRecyclerView()
     }
 
     private fun setUpRecyclerView() {
-        val widgetFactory = WidgetFactory();
-        widgetFactory.register("article_list", ArticleListViewHolder::create )
-        widgetFactory.register("item_list", ItemListViewHolder::create)
+        widgetFactory.register("banner") { parent ->
+            BannerViewHolder.create(parent)
+        }
 
-        // examples in case you would handle area and feed in the same
-//        widgetFactory.register("area_selection", ....factory)
-//        widgetFactory.register("feed", ....feedfactory)
-//        widgetData.add(0, new WidgetData(type: "area_selection"))
-//        widgetData.add(widgetData.length - 1, new WidgetData(type: "feed"))
+        widgetFactory.register("item_list") { parent ->
+            ItemListViewHolder.create(parent)
+        }
+
+        widgetFactory.register("shop_list") { parent ->
+            ShopListViewHolder.create(parent)
+        }
+
+        widgetFactory.register("article_list") { parent ->
+            ArticleListViewHolder.create(parent)
+        }
+
+        widgetFactory.register("invalid") { parent ->
+            EmptyViewHolder.create(parent)
+        }
 
         recycler_view.apply {
-            adapter = WidgetAdapter(widgetData, widgetFactory)
+            adapter = WidgetAdapter(widgetDataList, widgetFactory)
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         }
     }
 
     private fun initData() {
         val type: Type = object : TypeToken<WidgetDefinitionList>() {}.type
-        widgetData = GsonUtils.instance!!.fromJson(responseFromFile(), type)
+        val widgetDefinitionList: WidgetDefinitionList =
+            GsonUtils.instance!!.fromJson(responseFromFile(), type)
+        widgetDataList = widgetDefinitionList.widgets
     }
 
     private fun responseFromFile() =

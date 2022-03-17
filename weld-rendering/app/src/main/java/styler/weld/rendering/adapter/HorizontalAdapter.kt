@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import styler.weld.rendering.R
-import styler.weld.rendering.models.remote.BaseItem
+import styler.weld.rendering.models.local.HorizontalListItem
 import styler.weld.rendering.models.local.itemlist.ItemListItem
 import styler.weld.rendering.models.local.shoplist.ShopListItem
 import styler.weld.rendering.viewholder.EmptyHorizontalViewHolder
@@ -13,7 +13,7 @@ import styler.weld.rendering.viewholder.HorizontalShopViewHolder
 import styler.weld.rendering.viewholder.HorizontalViewHolder
 
 class HorizontalAdapter(
-    private val baseList: List<BaseItem>?,
+    private val baseList: List<HorizontalListItem>?,
     private val type: String
 ) :
     RecyclerView.Adapter<HorizontalViewHolder>() {
@@ -30,17 +30,8 @@ class HorizontalAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.horizontal_item_list_row_item, parent, false)
-        val itemList: List<ItemListItem>? = baseList?.map {
-            ItemListItem(
-                it.brand,
-                it.discount,
-                it.id,
-                it.image,
-                it.name,
-                it.price_with_tax,
-                it.shop_id,
-                it.type
-            )
+        val itemList = baseList?.filterIsInstance<ItemListItem>().takeIf {
+            it?.size == baseList?.size
         }
         return HorizontalItemViewHolder(view, itemList)
     }
@@ -49,12 +40,8 @@ class HorizontalAdapter(
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.horizontal_shop_list_row_item, parent, false)
-        val shopList: List<ShopListItem>? = baseList?.map {
-            ShopListItem(
-                it.id,
-                it.name,
-                it.logo
-            )
+        val shopList = baseList?.filterIsInstance<ShopListItem>().takeIf {
+            it?.size == baseList?.size
         }
         return HorizontalShopViewHolder(view, shopList)
     }
@@ -69,7 +56,7 @@ class HorizontalAdapter(
         holder.bindData()
     }
 
-    override fun getItemCount() : Int {
+    override fun getItemCount(): Int {
         return baseList?.size ?: 0
     }
 
